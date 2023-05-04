@@ -26,13 +26,13 @@ jobs:
         run: dotnet build 95-container-apps-authentication/src/AuthDemoApp/AuthDemoApp/AuthDemoApp.csproj --configuration Release -o ./app/build
 
       - name: dotnet publish
-        run: dotnet publish 95-container-apps-authentication/src/AuthDemoApp/AuthDemoApp/AuthDemoApp.csproj -c Release -o ./myapp
+        run: dotnet publish 95-container-apps-authentication/src/AuthDemoApp/AuthDemoApp/AuthDemoApp.csproj -c Release -o ./myapp/publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ./myapp/publish
 
   deploy:
     runs-on: ubuntu-latest
