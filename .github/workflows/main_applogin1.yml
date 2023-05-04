@@ -23,7 +23,7 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build 95-container-apps-authentication/src/AuthDemoApp/AuthDemoApp/AuthDemoApp.csproj --configuration Release /app/build
+        run: dotnet build 95-container-apps-authentication/src/AuthDemoApp/AuthDemoApp/AuthDemoApp.csproj --configuration Release -o /app/build
 
       - name: dotnet publish
         run: dotnet publish 95-container-apps-authentication/src/AuthDemoApp/AuthDemoApp/AuthDemoApp.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
